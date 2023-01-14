@@ -69,26 +69,26 @@ describe('UsersController', () => {
 
   describe('findAll()', () => {
     it('should find all users ', () => {
-      usersController.findAll();
-      expect(usersService.findAll).toHaveBeenCalled();
+      usersController.getAll();
+      expect(usersService.getAll).toHaveBeenCalled();
     });
   });
 
   describe('findOne()', () => {
     it('should find a user', () => {
-      expect(usersController.findOne(1)).resolves.toEqual({
+      expect(usersController.getById(1)).resolves.toEqual({
         firstName: 'firstName #1',
         lastName: 'lastName #1',
         id: 1,
       });
-      expect(usersService.findOne).toHaveBeenCalled();
+      expect(usersService.getById).toHaveBeenCalled();
     });
   });
 
   describe('remove()', () => {
     it('should remove the user', () => {
-      usersController.remove('2');
-      expect(usersService.remove).toHaveBeenCalled();
+      usersController.deleteById('2');
+      expect(usersService.deleteById).toHaveBeenCalled();
     });
   });
 });
