@@ -1,0 +1,10 @@
+{
+  "name": "nodejs-posgresql",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+  },
+  "dependencies": {
+    "pg": "^8.5.1"
+  }
+}
