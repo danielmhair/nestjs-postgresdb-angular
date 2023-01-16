@@ -1,0 +1,33 @@
+tasks:
+  - name: 'Setup'
+    command: |
+      git config --global pull.rebase false
+      cd api && npm ci
+      cd ../app && npm ci
+      gp sync-done initial
+      echo ""
+      echo "Public API URL:"
+      gp url 3000
+      echo ""
+      echo "Public App URL:"
+      gp url 4200
+
+  - name: 'Start Api'
+    command: |
+      gp sync-await initial
+      cd api && npm start
+
+  - name: 'Start App'
+    command: |
+      gp sync-await initial
+      cd app && npm start
+
+ports:
+  - port: 3000
+    visibility: public
+
+  - port: 4200
+    visibility: open-browser
+
+  - port: 5432
+    visibility: ignore

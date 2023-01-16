@@ -13,11 +13,11 @@ services:
       - db:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
   api:
-    container_name: quotes-api
+    container_name: api
     build:
       context: ./
       target: production
-    image: quotes-api
+    image: api
     depends_on:
       - db
     ports:
