@@ -13,12 +13,12 @@ tasks:
       gp url 4200
 
   - name: 'Start Api'
-    command: |
+    init: |
       gp sync-await initial
       cd api && npm start
 
   - name: 'Start App'
-    command: |
+    init: |
       gp sync-await initial
       cd app && npm start
 
