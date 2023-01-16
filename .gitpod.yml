@@ -1,6 +1,6 @@
 tasks:
   - name: 'Setup'
-    command: |
+    init: |
       git config --global pull.rebase false
       cd api && npm ci
       cd ../app && npm ci
@@ -27,4 +27,5 @@ ports:
     visibility: public
 
   - port: 4200
-    visibility: open-browser
+    visibility: public
+    onOpen: open-browser
