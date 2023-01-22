@@ -1,16 +1,21 @@
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
-  - name: 'Setup'
+  - name: 'Setup and start DB'
     init: |
       git config --global pull.rebase false
       cd api && npm ci
       cd ../app && npm ci
-      gp sync-done initial
+      cd ..
       echo ""
       echo "Public API URL:"
       gp url 3000
       echo ""
       echo "Public App URL:"
       gp url 4200
+      gp sync-done initial
+      docker compose up
 
   - name: 'Start Api'
     init: |

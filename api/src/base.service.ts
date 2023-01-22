@@ -1,4 +1,4 @@
-import { DeepPartial, FindManyOptions, FindOneOptions, Repository } from 'typeorm';
+import { DeepPartial, FindManyOptions, FindOneOptions, Repository } from 'typeorm'
 
 export class BaseService<T, CreateDto> {
   constructor(protected readonly usersRepository: Repository<T>) {}
@@ -16,7 +16,7 @@ export class BaseService<T, CreateDto> {
   }
 
   async getById(id: number): Promise<T> {
-    return this.usersRepository.findOneBy({ id: id } as any);
+    return this.usersRepository.findOneBy({ id: id } as any)
   }
 
   async getOne(options?: FindOneOptions<T>): Promise<T> {
@@ -28,7 +28,7 @@ export class BaseService<T, CreateDto> {
   }
 
   async deleteById(id: string): Promise<void> {
-    await this.usersRepository.delete(id);
+    await this.usersRepository.delete(id)
   }
 
   async deleteWhere(options?: Pick<FindOneOptions<T>, 'where'>): Promise<void> {

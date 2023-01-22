@@ -1,18 +1,19 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { AppComponent } from './app.component'
 
-export const CLIENT_PORTAL_ROUTES: Routes = [
+export const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthService],
+    // canActivate: [AuthService],
     children: [
+      // {
+      //   path: 'auth',
+      //   loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+      // },
       {
-        path: 'auth',
-        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-      },
-      {
-        path: 'app',
-        loadChildren: () => import('./views/views.module').then(m => m.AuthModule),
+        path: '',
+        loadChildren: () => import('./app.module').then(m => m.AppModule),
       },
     ],
   },

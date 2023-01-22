@@ -1,9 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
-import { UsersModule } from '../../src/users/users.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { CreateUserDto } from '../../src/users/dto/create-user.dto';
+import { Test, TestingModule } from '@nestjs/testing'
+import { INestApplication } from '@nestjs/common'
+import * as request from 'supertest'
+import { UsersModule } from '../../src/users/users.module'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { CreateUserDto } from '../../src/users/dto/create-user.dto'
 
 describe('Users - /users (e2e)', () => {
   const users = {
@@ -11,17 +11,17 @@ describe('Users - /users (e2e)', () => {
     firstName: 'FirstName #1',
     lastName: 'LastName #1',
     isActive: true,
-  };
+  }
 
-  let app: INestApplication;
+  let app: INestApplication
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         TypeOrmModule.forRoot({
-          type: 'mysql',
+          type: 'postgres',
           host: 'localhost',
-          port: 3307,
+          port: 5432,
           username: 'root',
           password: 'root',
           database: 'test',
@@ -30,11 +30,11 @@ describe('Users - /users (e2e)', () => {
         }),
         UsersModule,
       ],
-    }).compile();
+    }).compile()
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
+    app = moduleFixture.createNestApplication()
+    await app.init()
+  })
 
   it('Create [POST /users]', () => {
     return request(app.getHttpServer())
@@ -42,33 +42,33 @@ describe('Users - /users (e2e)', () => {
       .send(users as CreateUserDto)
       .expect(201)
       .then(({ body }) => {
-        expect(body).toEqual(users);
-      });
-  });
+        expect(body).toEqual(users)
+      })
+  })
 
   it('Get all users [GET /users]', () => {
     return request(app.getHttpServer())
       .get('/users')
       .expect(200)
       .then(({ body }) => {
-        expect(body).toBeDefined();
-      });
-  });
+        expect(body).toBeDefined()
+      })
+  })
 
   it('Get one user [GET /users/:id]', () => {
     return request(app.getHttpServer())
       .get('/users/2')
       .expect(200)
       .then(({ body }) => {
-        expect(body).toBeDefined();
-      });
-  });
+        expect(body).toBeDefined()
+      })
+  })
 
   it('Delete one user [DELETE /users/:id]', () => {
-    return request(app.getHttpServer()).delete('/users/1').expect(200);
-  });
+    return request(app.getHttpServer()).delete('/users/1').expect(200)
+  })
 
   afterAll(async () => {
-    await app.close();
-  });
-});
+    await app.close()
+  })
+})

@@ -1,16 +1,16 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UsersController } from './users.controller';
-import { UsersService } from './users.service';
+import { Test, TestingModule } from '@nestjs/testing'
+import { CreateUserDto } from './dto/create-user.dto'
+import { UsersController } from './users.controller'
+import { UsersService } from './users.service'
 
 const createUserDto: CreateUserDto = {
   firstName: 'firstName #1',
   lastName: 'lastName #1',
-};
+}
 
 describe('UsersController', () => {
-  let usersController: UsersController;
-  let usersService: UsersService;
+  let usersController: UsersController
+  let usersService: UsersService
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
@@ -46,33 +46,33 @@ describe('UsersController', () => {
           },
         },
       ],
-    }).compile();
+    }).compile()
 
-    usersController = app.get<UsersController>(UsersController);
-    usersService = app.get<UsersService>(UsersService);
-  });
+    usersController = app.get<UsersController>(UsersController)
+    usersService = app.get<UsersService>(UsersService)
+  })
 
   it('should be defined', () => {
-    expect(usersController).toBeDefined();
-  });
+    expect(usersController).toBeDefined()
+  })
 
   describe('create()', () => {
     it('should create a user', () => {
-      usersController.create(createUserDto);
+      usersController.create(createUserDto)
       expect(usersController.create(createUserDto)).resolves.toEqual({
         id: '1',
         ...createUserDto,
-      });
-      expect(usersService.create).toHaveBeenCalledWith(createUserDto);
-    });
-  });
+      })
+      expect(usersService.create).toHaveBeenCalledWith(createUserDto)
+    })
+  })
 
   describe('findAll()', () => {
     it('should find all users ', () => {
-      usersController.getAll();
-      expect(usersService.getAll).toHaveBeenCalled();
-    });
-  });
+      usersController.getAll()
+      expect(usersService.getAll).toHaveBeenCalled()
+    })
+  })
 
   describe('findOne()', () => {
     it('should find a user', () => {
@@ -80,15 +80,15 @@ describe('UsersController', () => {
         firstName: 'firstName #1',
         lastName: 'lastName #1',
         id: 1,
-      });
-      expect(usersService.getById).toHaveBeenCalled();
-    });
-  });
+      })
+      expect(usersService.getById).toHaveBeenCalled()
+    })
+  })
 
   describe('remove()', () => {
     it('should remove the user', () => {
-      usersController.deleteById('2');
-      expect(usersService.deleteById).toHaveBeenCalled();
-    });
-  });
-});
+      usersController.deleteById('2')
+      expect(usersService.deleteById).toHaveBeenCalled()
+    })
+  })
+})
