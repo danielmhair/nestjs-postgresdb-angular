@@ -2,9 +2,9 @@
   "name": "nodejs-posgresql-angular",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-  },
+  "scripts": {},
   "devDependencies": {
+    "@nrwl/angular": "^15.5.3",
     "@types/node": "^18.11.18",
     "ts-node": "^10.9.1"
   }

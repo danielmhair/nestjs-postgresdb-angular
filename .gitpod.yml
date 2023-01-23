@@ -5,6 +5,7 @@ tasks:
   - name: 'Setup and start DB'
     init: |
       git config --global pull.rebase false
+      node env && source .env
       cd api && npm ci
       cd ../app && npm ci
       cd ..
