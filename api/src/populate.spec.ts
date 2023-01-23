@@ -20,7 +20,7 @@ describe('Postgres DB', () => {
   it('should populate users', async () => {
     await usersService.deleteWhere({ where: { isActive: true } })
  
-    await usersService.create({ firstName: 'Dan', lastName: 'Hair' })
-    await usersService.create({ firstName: 'Mark', lastName: 'Mena' })
+    await usersService.create({ firstName: 'Dan', lastName: 'Hair', email: 'danielmhair@gmail.com' })
+    await usersService.create({ firstName: 'Mark', lastName: 'Mena', email: 'marktavius@gmail.com' })
   })
 })

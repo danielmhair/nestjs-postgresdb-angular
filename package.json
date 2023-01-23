@@ -6,6 +6,11 @@
   "devDependencies": {
     "@nrwl/angular": "^15.5.3",
     "@types/node": "^18.11.18",
+    "cypress": "^12.3.0",
     "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "create-nx-workspace": "^15.5.3",
+    "dotenv": "^16.0.3"
   }
 }

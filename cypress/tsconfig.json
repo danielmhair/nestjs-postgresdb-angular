@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["ES2019", "DOM"],
+    "module": "commonjs",
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "typeRoots": [
+      "./support"
+    ],
+    "types": [
+      "node",
+      "cypress"
+    ],
+    "paths": {
+      "support/*": ["./support/*"]
+    }
+  },
+  "include": [
+    "./support/*.ts",
+    "./integrations/*.ts",
+    "./e2e/*.ts"
+  ]
+}
