@@ -13,5 +13,5 @@
     "incremental": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", ".eslintrc.js"]
+  "include": ["src/**/*", "migrations/**/*", ".eslintrc.js", "*-migrations.ts", "./type-orm.config.ts", "./db.config.ts"]
 }

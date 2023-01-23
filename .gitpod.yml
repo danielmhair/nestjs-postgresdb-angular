@@ -34,3 +34,6 @@ ports:
   - port: 4200
     visibility: public
     onOpen: open-browser
+
+  - port: 5432
+    visibility: public

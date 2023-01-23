@@ -6,16 +6,18 @@ export const routes: Routes = [
   {
     path: '',
     // canActivate: [AuthService],
-    children: [
-      // {
-      //   path: 'auth',
-      //   loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-      // },
-      {
-        path: '',
-        loadChildren: () => import('./app.module').then(m => m.AppModule),
-      },
-    ],
+    component: AppComponent,
+    // children: [
+    //   {
+    //     path: 'auth',
+    //     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+    //   },
+    //   {
+    //     path: '',
+    //     loadChildren: () => import('./app.module').then(m => m.AppModule),
+    //   },
+
+    // ],
   },
 ]
 

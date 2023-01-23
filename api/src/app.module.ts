@@ -11,6 +11,7 @@ import { UsersModule } from './users/users.module'
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
+      // migrations: [PopulateDataExample1674432771960],
       autoLoadEntities: true,
       synchronize: true,
     }),

@@ -16,6 +16,14 @@ npm start
 
 Then I moved in logic from an example related to typeorm so that its easy to work with the postgres db. I also added angular.
 
+I then learned about how typeorm uses migrations. I don't need migrations for now since its the beginning and temporarily using synchronize: true, but will use it eventually. That being said, I decided to use it to populate dummy data, for now.
+
+```
+npm run typeorm:create-migration --name=PopulateData
+```
+
+Then updated the file it generated and now added that file to TypeOrmModule.forRoot options with `migrations: [PopulateData1674432771960],`.
+
 Todo:
 - Move logic from alarm-blocks with login/logout flow
 - Can we use food4all app for google login? If so, great
