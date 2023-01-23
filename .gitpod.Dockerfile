@@ -1,9 +1,4 @@
-# FROM gitpod/workspace-full-vnc
-FROM gitpod/workspace-postgres:latest
-USER root
-COPY ./db/postgresql.conf /etc/postgresql/12/main/postgresql.conf
-COPY ./db/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf
-
+FROM gitpod/workspace-full-vnc
 ENV CYPRESS_CACHE_FOLDER=/workspace/.cypress-cache
 
 # Install Cypress dependencies.
