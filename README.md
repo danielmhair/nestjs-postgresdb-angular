@@ -25,7 +25,7 @@ npm run typeorm:create-migration --name=PopulateData
 Then updated the file it generated and now added that file to TypeOrmModule.forRoot options with `migrations: [PopulateData1674432771960],`.
 
 Todo:
-- Add angular/material to system
+- Used the following to add angular and material to nrwl framework
   - npx nx add @nrwl/angular
   - npx nx add @angular/material
 
