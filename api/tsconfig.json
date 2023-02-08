@@ -11,7 +11,11 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@app/models": ["../app/libs/models/src/index.ts"],
+      "@app/models/*": ["../app/libs/models/src/*"]
+    }
   },
-  "include": ["src/**/*", "migrations/**/*", ".eslintrc.js", "*-migrations.ts", "./type-orm.config.ts", "./db.config.ts"]
+  "include": ["src/**/*", "migrations/**/*", ".eslintrc.js", "*-migrations.ts", "./type-orm.config.ts", "./db.config.ts", "../app/libs/models/src/**/*.ts"]
 }

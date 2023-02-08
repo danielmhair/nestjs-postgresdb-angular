@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common'
 import { DeepPartial } from 'typeorm'
 import { BaseController } from '../base.controller'
-import { CreateUserDto } from './dto/create-user.dto'
+import { CreateUserDto } from '@app/models'
 import { User } from './user.entity'
 import { UsersService } from './users.service'
 

@@ -1,3 +1,3 @@
 export const environments = {
-  API_URL: 'https://3000-danielmhair-nestjspostg-n4cq8rvafpl.ws-us83.gitpod.io'
+  API_URL: 'https://3000-danielmhair-nestjspostg-1q46itvhwa2.ws-us86.gitpod.io'
 }
