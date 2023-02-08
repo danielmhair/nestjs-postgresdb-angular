@@ -1,4 +1,8 @@
 FROM gitpod/workspace-postgres:latest
+USER root
+COPY ./postgres/postgresql.conf /etc/postgresql/12/main/postgresql.conf
+COPY ./postgres/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf
+
 FROM gitpod/workspace-full-vnc
 ENV CYPRESS_CACHE_FOLDER=/workspace/.cypress-cache
 
