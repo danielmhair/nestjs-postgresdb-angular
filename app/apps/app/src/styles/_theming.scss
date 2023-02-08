@@ -1,0 +1,126 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+$app-success-palette: (
+    50 : #ecf3e8,
+    100 : #d0e0c7,
+    200 : #b1cca1,
+    300 : #91b77b,
+    400 : #7aa75f,
+    500 : #629843,
+    600 : #5a903d,
+    700 : #508534,
+    800 : #467b2c,
+    900 : #346a1e,
+    A100 : #bfffa7,
+    A200 : #9aff74,
+    A400 : #7df935,
+    A700 : #63ff28,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$app-gray-palette: (
+    50 : #f5f5f5,
+    100 : #e5e5e5,
+    200 : #d4d4d4,
+    300 : #c3c2c3,
+    400 : #b6b5b6,
+    500 : #a9a8a9,
+    600 : #a2a0a2,
+    700 : #989798,
+    800 : #8f8d8f,
+    900 : #7e7d7e,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$app-orange-palette: (
+    50 : #fff3e0,
+    100 : #ffe0b3,
+    200 : #ffcc80,
+    300 : #ffb74d,
+    400 : #ffa726,
+    500 : #ff9800,
+    600 : #ff9000,
+    700 : #ff8500,
+    800 : #ff7b00,
+    900 : #ff6a00,
+    A100 : #ffffff,
+    A200 : #fff7f2,
+    A400 : #ffd6bf,
+    A700 : #ffc5a6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Available color palettes: https://material.io/design/color/
+$app-primary: mat.define-palette(mat.$purple-palette, 700, 500, 800);
+$app-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$app-warn: mat.define-palette(mat.$red-palette);
+$app-success: mat.define-palette($app-success-palette);
+$app-gray: mat.define-palette($app-gray-palette);
+$app-orange: mat.define-palette($app-orange-palette);
+$app-theme: mat.define-dark-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+  )
+));
+
+@include mat.all-component-themes($app-theme);
+
+@import "../app/navbar/navbar.component.theme";
+
+@include app-navbar-theme($app-theme);

@@ -1,0 +1,248 @@
+@use '@angular/material' as mat;
+
+.warn-bg {
+  background-color: mat.get-color-from-palette(
+    $app-warn,
+    500
+  ) !important;
+  &.contrast-700 {
+    background-color: mat.get-color-from-palette(
+      $app-warn,
+      700
+    ) !important; // Needed for adding this class to material colors
+  }
+}
+.app-color-primary {
+  color: mat.get-color-from-palette(
+    $app-primary,
+    500
+  ) !important; // Needed for adding this class to material colors
+}
+
+.app-color-accent {
+  color: mat.get-color-from-palette(
+    $app-accent,
+    500
+  ) !important; // Needed for adding this class to material colors
+}
+
+.app-color-warn {
+  color: mat.get-color-from-palette(
+    $app-warn,
+    500
+  ) !important; // Needed for adding this class to material colors
+}
+
+.app-color-success {
+  color: mat.get-color-from-palette(
+    $app-success,
+    500
+  ) !important; // Needed for adding this class to material colors
+}
+
+.app-color-orange {
+  color: mat.get-color-from-palette(
+    $app-orange,
+    700
+  ) !important; // Needed for adding this class to material colors
+}
+
+.app-color-gray {
+  color: mat.get-color-from-palette(
+    mat.$gray-palette,
+    700
+  ) !important; // Needed for adding this class to material colors
+}
+
+.app-bg-primary {
+  // Needed for adding this class to material colors
+  background-color: mat.get-color-from-palette($app-primary, 700) !important;
+  color: white !important;
+}
+
+.app-bg-accent {
+  // Needed for adding this class to material colors
+  background-color: mat.get-color-from-palette($app-accent, 700) !important;
+  color: white !important;
+}
+
+.app-bg-warn {
+  // Needed for adding this class to material colors
+  background-color: mat.get-color-from-palette($app-warn, 700) !important;
+  color: white !important;
+}
+
+.app-bg-success {
+  background-color: mat.get-color-from-palette($app-success, 700) !important;
+  color: white !important;
+}
+
+.app-bg-orange {
+  background-color: mat.get-color-from-palette($app-orange, 700) !important;
+  color: white !important;
+}
+
+.app-bg-gray {
+  background-color: mat.get-color-from-palette($app-gray, 700) !important;
+  color: white !important;
+}
+
+.app-bg-border-top-2 {
+  border-top-style: solid;
+  border-top-width: 2px;
+}
+
+.app-bg-border-top-1 {
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.app-bg-border-bottom-2 {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+.app-bg-border-bottom-1 {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.app-bg-border-bottom-primary {
+  border-bottom-color: mat.get-color-from-palette($app-primary, 700) !important;
+}
+
+.app-bg-border-top-primary {
+  border-top-color: mat.get-color-from-palette($app-primary, 700) !important;
+}
+
+.app-bg-border-bottom-accent {
+  border-bottom-color: mat.get-color-from-palette($app-accent, 700) !important;
+}
+
+.app-bg-border-top-accent {
+  border-top-color: mat.get-color-from-palette($app-accent, 700) !important;
+}
+
+.app-bg-border-bottom-warn {
+  border-bottom-color: mat.get-color-from-palette($app-warn, 700) !important;
+}
+
+.app-bg-border-top-warn {
+  border-top-color: mat.get-color-from-palette($app-warn, 700) !important;
+}
+
+.app-bg-border-bottom-success {
+  border-bottom-color: mat.get-color-from-palette($app-success, 700) !important;
+}
+
+.app-bg-border-top-success {
+  border-top-color: mat.get-color-from-palette($app-success, 700) !important;
+}
+
+.app-bg-border-bottom-orange {
+  border-bottom-color: mat.get-color-from-palette($app-orange, 700) !important;
+}
+
+.app-bg-border-top-orange {
+  border-top-color: mat.get-color-from-palette($app-orange, 700) !important;
+}
+
+.app-bg-border-bottom-gray {
+  border-bottom-color: mat.get-color-from-palette($app-gray, 700) !important;
+}
+
+.app-bg-border-top-gray {
+  border-top-color: mat.get-color-from-palette($app-gray, 700) !important;
+}
+
+.app-bg-semi-light-primary {
+  background-color: mat.get-color-from-palette($app-primary, 100) !important;
+}
+
+.app-bg-light-gray {
+  background-color: mat.get-color-from-palette($app-gray, 50) !important;
+  color: white !important;
+}
+
+.app-border-left-gray {
+  border-left-color: mat.get-color-from-palette($app-gray, 700) !important;
+  border-left-width: 5px !important;
+  border-left-style: solid !important;
+}
+
+.app-bg-light-primary {
+  // Needed for adding this class to material colors
+  background-color: mat.get-color-from-palette($app-primary, 50) !important;
+  color: black !important;
+}
+
+.app-border-left-primary {
+  border-left-color: mat.get-color-from-palette($app-primary, 700) !important;
+  border-left-width: 5px !important;
+  border-left-style: solid !important;
+}
+
+.app-bg-semi-light-accent {
+  background-color: mat.get-color-from-palette($app-accent, 100) !important;
+}
+
+.app-bg-light-accent {
+  // Needed for adding this class to material colors
+  background-color: mat.get-color-from-palette($app-accent, 50) !important;
+  color: black !important;
+}
+
+.app-border-left-accent {
+  border-left-color: mat.get-color-from-palette($app-accent, 700) !important;
+  border-left-width: 5px !important;
+  border-left-style: solid !important;
+}
+
+.app-bg-semi-light-warn {
+  background-color: mat.get-color-from-palette($app-warn, 100) !important;
+}
+
+.app-bg-light-warn {
+  // Needed for adding this class to material colors
+  background-color: mat.get-color-from-palette($app-warn, 50) !important;
+  color: black !important;
+}
+
+.app-border-left-warn {
+  border-left-color: mat.get-color-from-palette($app-warn, 700) !important;
+  border-left-width: 5px !important;
+  border-left-style: solid !important;
+}
+
+.app-bg-semi-light-success {
+  background-color: mat.get-color-from-palette($app-success, 100) !important;
+}
+
+.app-bg-light-success {
+  background-color: mat.get-color-from-palette($app-success, 50) !important;
+}
+
+.app-border-left-success {
+  border-left-color: mat.get-color-from-palette($app-success, 700) !important;
+  border-left-width: 5px !important;
+  border-left-style: solid !important;
+}
+
+.app-bg-semi-light-orange {
+  background-color: mat.get-color-from-palette($app-orange, 100) !important;
+}
+
+.app-bg-light-orange {
+  background-color: mat.get-color-from-palette($app-orange, 50) !important;
+}
+
+.app-border-left-orange {
+  border-left-color: mat.get-color-from-palette($app-orange, 700) !important;
+  border-left-width: 5px !important;
+  border-left-style: solid !important;
+}
+
+.app-snackbar-custom-action .mat-button{
+  background-color: #00000038;
+  color: white;
+}

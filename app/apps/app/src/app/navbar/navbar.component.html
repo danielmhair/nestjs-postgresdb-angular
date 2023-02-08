@@ -1,0 +1,61 @@
+<mat-toolbar color="primary">
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()">
+    <i class="mdi mdi-menu"></i>
+  </button>
+  <mat-icon>laptop</mat-icon> App
+  <span class="fill"></span>
+  <div *ngIf="!photoUrl; else photo">
+    <span [matMenuTriggerFor]="menu">
+      <button mat-button class="font-size-16 circle app-color-accent" data-cy="qi-logged-in-layout-user-button">
+        {{ user.initials }}
+      </button>
+    </span>
+  </div>
+  <ng-template #photo>
+    <div class="photo" [matMenuTriggerFor]="menu">
+      <img class="avatar border-white" [src]="photoUrl" />
+    </div>
+  </ng-template>
+
+  <mat-menu #menu="matMenu" yPosition="below" class="mat-menu-settings">
+    <div mat-menu-item disabled class="name">
+      <span>{{ user.firstName }} {{ user.lastName }}</span>
+    </div>
+    <div mat-menu-item disabled class="email">
+      <span>{{ user.email }}</span>
+    </div>
+    <div mat-menu-item disabled class="version" *ngIf="version">
+      <small *ngIf="version">{{ version }}</small>
+    </div>
+    <mat-divider></mat-divider>
+
+    <button (click)="goToAccount.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-account-button">
+      <i class="mdi mdi-account-circle mdi-24px"></i> Settings
+    </button>
+    <button (click)="logout.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-activity-log-button">
+      <i class="mdi mdi-log mdi-24px"></i> Activity Log
+    </button>
+    <button (click)="logout.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-logout-button">
+      <i class="mdi mdi-power mdi-24px"></i> Logout
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav"
+      [attr.role]="'navigation'"
+      mode="side">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

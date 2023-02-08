@@ -25,6 +25,10 @@ npm run typeorm:create-migration --name=PopulateData
 Then updated the file it generated and now added that file to TypeOrmModule.forRoot options with `migrations: [PopulateData1674432771960],`.
 
 Todo:
+- Add angular/material to system
+  - npx nx add @nrwl/angular
+  - npx nx add @angular/material
+
 - Move logic from alarm-blocks with login/logout flow
 - Can we use food4all app for google login? If so, great
 - Begin cleaning up and have a logged in portal and a logged out portal

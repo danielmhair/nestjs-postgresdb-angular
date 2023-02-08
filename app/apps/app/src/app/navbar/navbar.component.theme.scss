@@ -1,0 +1,11 @@
+
+
+@mixin app-navbar-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  app-navbar {
+    .circle {
+      border-color: map-get($accent, 500);
+    }
+  }
+}
