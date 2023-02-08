@@ -2,6 +2,15 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: 'SQL'
+    init: |
+      sudo apt-get install wget ca-certificates
+      wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+      sudo apt-get update
+      sudo apt-get install postgresql postgresql-contrib
+      gp sync-await initial
+      psql -h 0.0.0.0 -p 5432 -U postgres -W postgres
   - name: 'Setup and start DB'
     init: |
       git config --global pull.rebase false
@@ -21,12 +30,15 @@ tasks:
   - name: 'Start Api'
     init: |
       gp sync-await initial
-      cd api && npm start
+      npm run populate
+      cd api
+      npm start
 
   - name: 'Start App'
     init: |
       gp sync-await initial
-      cd app && npm start
+      cd app
+      npm start
 
 ports:
   - port: 3000
