@@ -8,7 +8,6 @@
   },
   "onCreateCommand": {
     "rebase": "git config --global pull.rebase false",
-    "sql-setup": "./.devcontainer/sql-setup.sh",
     "env-setup": "node env && source .env",
     "install-main-deps": "npm ci",
     "install-api-deps": "cd api && npm ci",
