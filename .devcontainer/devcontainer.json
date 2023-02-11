@@ -20,18 +20,10 @@
     "api": "npm run populate && cd api && npm start",
     "app": "cd app && npm start"
   },
-  "portsAttributes": {
-    "3000": {
-      "label": "api"
-    },
-    "4200": {
-      "label": "app"
-    },
-    "5432": {
-      "label": "app"
-    },
-    "6080": {
-      "label": "vnc"
-    }
-  }
+  "forwardPorts": [
+    "api:3000",
+    "app:4200",
+    "postgres:5432",
+    "vnc:6080"
+  ]
 }
