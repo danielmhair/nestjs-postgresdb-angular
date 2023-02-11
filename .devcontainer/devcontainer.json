@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+  "name": "Existing Dockerfile",
+  "build": {
+    "context": "..",
+    "dockerfile": "../.gitpod.Dockerfile"
+  },
+  "onCreateCommand": [
+    "git config --global pull.rebase false",
+
+    // SQL setup
+    "sudo apt-get install wget ca-certificates -y",
+    "wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -",
+    "sudo sh -c 'echo \"deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main\" > /etc/apt/sources.list.d/pgdg.list'",
+    "sudo apt-get update",
+    "sudo apt-get install postgresql postgresql-contrib -y",
+
+    // Install dependencies
+    "node env && source .env",
+    "npm ci",
+    "cd api && npm ci",
+    "cd ../app && npm ci",
+    "cd .."
+  ],
+  "postCreateCommand": {
+    "sql": "psql -h 0.0.0.0 -p 5432 -U postgres -W postgres",
+    "db": "docker compose up",
+    "api": "npm run populate && cd api && npm start",
+    "app": "cd app && npm start"
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "api"
+    },
+    "4200": {
+      "label": "app"
+    },
+    "5432": {
+      "label": "app"
+    }
+  }
+}
