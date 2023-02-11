@@ -4,25 +4,16 @@
   "name": "Existing Dockerfile",
   "build": {
     "context": "..",
-    "dockerfile": "../.codespaces.Dockerfile"
+    "dockerfile": "./.codespaces.Dockerfile"
   },
-  "onCreateCommand": [
-    "git config --global pull.rebase false",
-
-    // SQL setup
-    "sudo apt-get install wget ca-certificates -y",
-    "wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -",
-    "sudo sh -c 'echo \"deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main\" > /etc/apt/sources.list.d/pgdg.list'",
-    "sudo apt-get update",
-    "sudo apt-get install postgresql postgresql-contrib -y",
-
-    // Install dependencies
-    "node env && source .env",
-    "npm ci",
-    "cd api && npm ci",
-    "cd ../app && npm ci",
-    "cd .."
-  ],
+  "onCreateCommand": {
+    "rebase": "git config --global pull.rebase false",
+    "sql-setup": "./.devcontainer/sql-setup.sh",
+    "env-setup": "node env && source .env",
+    "install-main-deps": "npm ci",
+    "install-api-deps": "cd api && npm ci",
+    "install-app-deps": "cd app && npm ci"
+  },
   "postCreateCommand": {
     "sql": "psql -h 0.0.0.0 -p 5432 -U postgres -W postgres",
     "db": "docker compose up",
@@ -38,6 +29,9 @@
     },
     "5432": {
       "label": "app"
+    },
+    "6080": {
+      "label": "vnc"
     }
   }
 }
