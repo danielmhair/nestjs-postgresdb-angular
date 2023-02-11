@@ -1,7 +1,5 @@
 FROM ghcr.io/jonico/codespace-with-vnc-chrome-and-ps:latest
 
-COPY fluxbox/menu /home/vscode/.fluxbox/
-
 VOLUME [ "/var/lib/docker" ]
 
 
