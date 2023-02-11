@@ -4,7 +4,7 @@
   "name": "Existing Dockerfile",
   "build": {
     "context": "..",
-    "dockerfile": "../.gitpod.Dockerfile"
+    "dockerfile": "../.codespaces.Dockerfile"
   },
   "onCreateCommand": [
     "git config --global pull.rebase false",
