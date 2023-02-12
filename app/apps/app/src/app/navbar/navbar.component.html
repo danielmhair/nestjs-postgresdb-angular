@@ -10,7 +10,7 @@
   <span class="fill"></span>
   <div *ngIf="!photoUrl; else photo">
     <span [matMenuTriggerFor]="menu">
-      <button mat-button class="font-size-16 circle app-color-accent" [matRippleDisable]="true" data-cy="qi-logged-in-layout-user-button">
+      <button mat-button class="font-size-16 circle app-color-accent" data-cy="qi-logged-in-layout-user-button">
         {{ user.initials }}
       </button>
     </span>
