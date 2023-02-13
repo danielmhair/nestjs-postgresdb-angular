@@ -31,6 +31,7 @@ tasks:
   - name: 'Start Api'
     init: |
       gp sync-await initial
+      sleep 5
       npm run populate
       cd api
       npm start
