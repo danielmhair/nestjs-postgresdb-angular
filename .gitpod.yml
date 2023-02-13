@@ -28,7 +28,6 @@ tasks:
     init: |
       gp sync-await initial
       gp ports await 5432
-      gp ports await 3000
       npm run populate
       cd api
       npm start
