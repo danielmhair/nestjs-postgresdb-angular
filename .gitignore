@@ -16,12 +16,14 @@ lerna-debug.log*
 
 # OS
 .DS_Store
+Thumbs.db
 
 # Tests
 /coverage
 /.nyc_output
 
 # IDEs and editors
+/.awcache
 /.idea
 .project
 .classpath
@@ -38,3 +40,19 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 app/apps/app/src/environments/environments.ts
+
+
+# compiled output
+tmp
+/out-tsc
+
+# misc
+/.sass-cache
+/connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+
+# angular
+.angular
+apps/app/src/environments/environments.ts
