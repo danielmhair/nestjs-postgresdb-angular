@@ -10,6 +10,7 @@ tasks:
       sudo apt-get update
       sudo apt-get install postgresql postgresql-contrib -y
       gp sync-await initial
+      gp await-port 5432
       psql -h 0.0.0.0 -p 5432 -U postgres -W postgres
 
   - name: 'Setup and start DB'
@@ -20,19 +21,14 @@ tasks:
       cd api && npm ci
       cd ../app && npm ci
       cd ..
-      echo ""
-      echo "Public API URL:"
-      gp url 3000
-      echo ""
-      echo "Public App URL:"
-      gp url 4200
       gp sync-done initial
       docker compose up
 
   - name: 'Start Api'
     init: |
       gp sync-await initial
-      sleep 5
+      gp await-port 5432
+      gp await-port 3000
       npm run populate
       cd api
       npm start
