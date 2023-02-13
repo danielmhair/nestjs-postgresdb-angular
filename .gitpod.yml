@@ -11,6 +11,7 @@ tasks:
       sudo apt-get install postgresql postgresql-contrib -y
       gp sync-await initial
       psql -h 0.0.0.0 -p 5432 -U postgres -W postgres
+
   - name: 'Setup and start DB'
     init: |
       git config --global pull.rebase false
