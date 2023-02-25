@@ -8,19 +8,13 @@
   </button>
   <mat-icon>laptop</mat-icon> App
   <span class="fill"></span>
-  <ng-container *ngIf="user">
-    <div *ngIf="!photoUrl; else photo">
-      <span [matMenuTriggerFor]="menu">
-        <button mat-button class="font-size-16 circle app-color-accent" data-cy="qi-logged-in-layout-user-button">
-          <!-- {{ user.initials }} -->
-        </button>
-      </span>
+  <ng-template #socialButtons>
+    <asl-google-signin-button type='standard' size='large'></asl-google-signin-button>
+  </ng-template>
+  <ng-container *ngIf="user; else socialButtons">
+    <div class="photo" [matMenuTriggerFor]="menu">
+      <img class="avatar border-white" [src]="photoUrl" />
     </div>
-    <ng-template #photo>
-      <div class="photo" [matMenuTriggerFor]="menu">
-        <img class="avatar border-white" [src]="photoUrl" />
-      </div>
-    </ng-template>
 
     <mat-menu #menu="matMenu" yPosition="below" class="mat-menu-settings">
       <div mat-menu-item disabled class="name">
@@ -34,12 +28,6 @@
       </div>
       <mat-divider></mat-divider>
 
-      <button (click)="goToAccount.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-account-button">
-        <i class="mdi mdi-account-circle mdi-24px"></i> Settings
-      </button>
-      <button (click)="logout.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-activity-log-button">
-        <i class="mdi mdi-log mdi-24px"></i> Activity Log
-      </button>
       <button (click)="logout.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-logout-button">
         <i class="mdi mdi-power mdi-24px"></i> Logout
       </button>

@@ -1,4 +1,4 @@
-import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Injectable, OnDestroy } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -22,7 +22,7 @@ export class AuthService implements CanActivate, CanActivateChild, OnDestroy {
   ) {
     this.socialAuth.authState.subscribe(u => {
       this.user = u
-      // ??: this.setUser(this.user)
+      this.setUser(this.user)
     })
   }
 
@@ -31,16 +31,19 @@ export class AuthService implements CanActivate, CanActivateChild, OnDestroy {
     this.destroy$.complete()
   }
 
-  public async canActivate(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot): Promise<boolean> {
+  public async canActivate(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _route: ActivatedRouteSnapshot, _state: RouterStateSnapshot,
+  ): Promise<boolean> {
     try {
       if (!this.loggedIn) {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/auth/login'])
         return false
       }
 
       return true
     } catch (err) {
-      this.router.navigate(['/login'])
+      this.router.navigate(['/auth/login'])
       return false
     }
   }
@@ -54,12 +57,12 @@ export class AuthService implements CanActivate, CanActivateChild, OnDestroy {
 
   public async logout() {
     await this.socialAuth.signOut()
-    localStorage.removeItem(AuthService.LOCAL_STORAGE_USER)
     this.user = null
-    this.router.navigate(['/login'])
+    this.router.navigate(['/auth/login'])
   }
 
   public async loginWith(providerId: string): Promise<void> {
+    if (providerId === GoogleLoginProvider.PROVIDER_ID) { throw new Error('Do not use loginWith for google. Its used for other logins.')}
     this.loading = true
     this.setUser(await this.socialAuth.signIn(providerId))
     this.loading = true

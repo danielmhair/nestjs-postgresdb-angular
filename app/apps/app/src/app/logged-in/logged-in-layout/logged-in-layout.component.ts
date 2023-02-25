@@ -17,8 +17,4 @@ export class LoggedInLayoutComponent {
   public async logout(): Promise<void> {
     await this.authService.logout()
   }
-
-  public goToAccount() {
-    // this.router.navigate('account')
-  }
 }

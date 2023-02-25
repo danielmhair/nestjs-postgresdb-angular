@@ -14,53 +14,11 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.mat-toolbar > .mat-progress-bar {
-  position: absolute;
-  top: 60px;
-  left: -10px;
-  width: calc(100% + 10px);
-  height: 8px;
-}
-
 app-logged-in-layout {
-  .mdi {
-    top: 3px;
-    position: relative;
-  }
-  .title-icon {
-    margin-left: 20px;
-  }
-
-  .app-icon {
-    padding-right: 10px;
-  }
-
   .avatar {
     border-radius: 100%;
     width: 45px;
     margin-right: 20px;
     margin-top: 5px;
-  }
-
-  .mat-toolbar {
-    width: 100vw;
-    position: static;
-  }
-  /* General Styles */
-  .mat-toolbar {
-    padding: 0;
-
-    button[mat-icon-button] {
-      font-size: 25px;
-      margin-right: 20px;
-    }
-
-    .menu-button {
-      margin-left: 20px;
-
-      .mdi-menu {
-        font-size: 24px;
-      }
-    }
   }
 }

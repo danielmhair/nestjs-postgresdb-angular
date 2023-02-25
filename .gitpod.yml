@@ -38,6 +38,11 @@ tasks:
       cd app
       npm start
 
+  - name: 'Start Playwright'
+    init: |
+      gp sync-await initial
+      npx playwright install
+
 ports:
   - port: 3000
     visibility: public

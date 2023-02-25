@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "populate": "npx jest --config api/jest.config.js"
+    "populate": "npx jest --config api/jest.config.js",
+    "e2e:headed": "npx playwright test --headed",
+    "e2e": "npm run e2e:chrome --headed",
+    "e2e:chrome": "npm run e2e:headed -- --project chromium",
+    "e2e:firefox": "npm run e2e:headed -- --project firefox",
+    "e2e:webkit": "npm run e2e:headed -- --project webkit"
   },
   "devDependencies": {
     "@nrwl/angular": "^15.5.3",
@@ -16,7 +21,6 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@abacritt/angularx-social-login": "^1.3.2",
     "create-nx-workspace": "^15.5.3",
     "dotenv": "^16.0.3"
   }

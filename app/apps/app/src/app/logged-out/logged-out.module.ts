@@ -20,9 +20,9 @@ import { LoginComponent } from './login/login.component';
     MatTooltipModule,
     NavbarModule,
     MatProgressBarModule,
-    SocialLoginModule,
     MatToolbarModule,
     MatProgressBarModule,
+    SocialLoginModule,
   ],
 })
 export class LoggedOutModule { }

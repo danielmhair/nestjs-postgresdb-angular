@@ -1,5 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
+  // TODO: This eslint isn't being applied because eslint needs to be defined per group (api, app and playwright)
   // parserOptions: {
   //   project: 'tsconfig.json',
   //   tsconfigRootDir: __dirname,
@@ -22,7 +23,7 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    // '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "class-methods-use-this": "off",
     "padded-blocks": "off",

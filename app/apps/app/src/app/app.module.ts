@@ -1,23 +1,19 @@
-import { HttpClientModule } from '@angular/common/http'
-import { NgModule } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list'
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import {
-  GoogleLoginProvider,
-} from '@abacritt/angularx-social-login';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environments } from '../environments/environments';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +31,11 @@ import { environments } from '../environments/environments';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    SocialLoginModule,
   ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',
-      useValue: {
+      useValue: <SocialAuthServiceConfig>{
         autoLogin: false,
         providers: [
           {
@@ -54,7 +49,7 @@ import { environments } from '../environments/environments';
           console.error('Error from app.module for social auth service config')
           console.error(err);
         }
-      } as SocialAuthServiceConfig,
+      },
     },
   ],
   bootstrap: [AppComponent]

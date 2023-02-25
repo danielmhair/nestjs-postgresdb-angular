@@ -12,5 +12,4 @@ export class NavbarComponent {
   @Input() public user: SocialUser = null
   @Input() public version = '0.0.1'
   @Output() public logout = new EventEmitter<MouseEvent>()
-  @Output() public goToAccount = new EventEmitter<MouseEvent>()
 }

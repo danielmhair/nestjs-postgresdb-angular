@@ -1,9 +1,8 @@
 const { writeFileSync } = require('fs')
 const { join } = require("path")
-
 const env = {
   GITPOD_WORKSPACE_URL: process.env.GITPOD_WORKSPACE_URL,
-  GOOGLE_CLIENT_ID: JSON.parse(process.env.GOOGLE_CREDENTIALS_UWAKE || 'null')?.web?.clientId || '',
+  GOOGLE_CLIENT_ID: JSON.parse(process.env.GOOGLE_CREDENTIALS_UWAKE || 'null')?.web?.client_id || '',
 }
 
 if (!env.GITPOD_WORKSPACE_URL) {

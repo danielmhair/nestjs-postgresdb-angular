@@ -12,7 +12,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { RouterModule } from '@angular/router';
 import { NavbarModule } from '../navbar/navbar.module';
 import { HomeComponent } from './home/home.component';
 import { LoggedInLayoutComponent } from './logged-in-layout/logged-in-layout.component';
@@ -25,7 +24,6 @@ import { LoggedInRoutingModule } from './logged-in-routing.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
     FormsModule,
     NavbarModule,
     ReactiveFormsModule,
