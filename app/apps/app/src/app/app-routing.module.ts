@@ -1,25 +1,23 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { AppComponent } from './app.component'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthService } from './auth.service';
+import { LoggedInLayoutComponent } from './logged-in/logged-in-layout/logged-in-layout.component';
+import { LoginComponent } from './logged-out/login/login.component';
 
-export const routes: Routes = [
+const routes: Routes = [
+  {
+    path: 'auth',
+    component: LoginComponent,
+    loadChildren: () => import('./logged-out/logged-out.module').then(m => m.LoggedOutModule),
+  },
   {
     path: '',
-    // canActivate: [AuthService],
-    component: AppComponent,
-    // children: [
-    //   {
-    //     path: 'auth',
-    //     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    //   },
-    //   {
-    //     path: '',
-    //     loadChildren: () => import('./app.module').then(m => m.AppModule),
-    //   },
-
-    // ],
+    canActivate: [AuthService],
+    canActivateChild: [AuthService],
+    component: LoggedInLayoutComponent,
+    loadChildren: () => import('./logged-in/logged-in.module').then(m => m.LoggedInModule),
   },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

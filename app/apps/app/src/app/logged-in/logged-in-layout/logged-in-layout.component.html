@@ -1,0 +1,29 @@
+<app-navbar
+  [photoUrl]='authService?.user?.photoUrl'
+  [user]="authService.user"
+  (logout)="logout()"
+  (goToAccount)="goToAccount()"
+>
+  <router-outlet></router-outlet>
+  <!-- <ng-container *userIconMenu>
+    <div *ngIf="!authService.user?.picture">
+      <span [matMenuTriggerFor]="menu">
+        <button mat-button class="font-size-16" data-cy="qi-logged-in-layout-user-button">
+          <i class="mdi mdi mdi-account-circle mdi-24px"></i>
+          {{ authService.user?.firstName }} {{ authService.user?.lastName }}
+        </button>
+      </span>
+    </div>
+    <div class="photo" [matMenuTriggerFor]="menu">
+      <img *ngIf="authService.user?.picture" class="avatar border-white" [src]="authService.user?.picture" />
+    </div>
+    <mat-menu #menu="matMenu">
+      <div mat-line>
+        {{ authService.user?.firstName }} {{ authService.user?.lastName }}
+      </div>
+      <button mat-menu-item data-cy="qi-logged-in-layout-logout-button" (click)="logout()">
+        <i class="mdi mdi-power mdi-24px"></i> Logout
+      </button>
+    </mat-menu>
+  </ng-container> -->
+</app-navbar>

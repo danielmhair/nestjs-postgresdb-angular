@@ -1,0 +1,23 @@
+app-background-image {
+  .background-image {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+  }
+
+  .background-overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.25);
+    top: 0;
+  }
+
+  .background-image-content {
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -56,3 +56,6 @@ testem.log
 # angular
 .angular
 apps/app/src/environments/environments.ts
+/test-results/
+/playwright-report/
+/playwright/.cache/
