@@ -13,6 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list'
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+} from '@abacritt/angularx-social-login';
+import { environments } from '../environments/environments';
 
 @NgModule({
   declarations: [
@@ -30,8 +35,28 @@ import { MatListModule } from '@angular/material/list'
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environments.GOOGLE_CLIENT_ID || ''
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error('Error from app.module for social auth service config')
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

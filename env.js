@@ -3,12 +3,16 @@ const { join } = require("path")
 
 const env = {
   GITPOD_WORKSPACE_URL: process.env.GITPOD_WORKSPACE_URL,
+  GOOGLE_CLIENT_ID: JSON.parse(process.env.GOOGLE_CREDENTIALS_UWAKE || 'null')?.web?.clientId || '',
 }
 
-if (!env.GITPOD_WORKSPACE_URL) { throw new Error('Have not implemented anything for things outside of gitpod.') }
+if (!env.GITPOD_WORKSPACE_URL) {
+  throw new Error('Have not implemented anything for things outside of gitpod, ask Dan about it :)')
+}
 
 const appEnvironments = {
   API_URL: env.GITPOD_WORKSPACE_URL.replace('https://', 'https://3000-'),
+  GOOGLE_CLIENT_ID: env.GOOGLE_CLIENT_ID,
 }
 
 writeFileSync(
