@@ -1,8 +1,16 @@
+#credential_picker_container {
+  iframe {
+    top: 7px !important;
+    position: fixed;
+  }
+}
+
 app-navbar {
   asl-google-signin-button {
     display: flex;
-    width: 240px;
+    width: 225px;
   }
+
   .sidenav-container {
     height: 100%;
   }
@@ -26,7 +34,7 @@ app-navbar {
   }
 
   .mat-icon {
-    padding: 10px 12px 5px 3px;
+    padding: 10px 12px 5px 12px;
   }
 
   .circle {
@@ -44,10 +52,62 @@ app-navbar {
 }
 
 .mat-menu-settings {
-  top: 30px;
+  top: 20px;
   left: 0px;
+  max-width: 270px;
+  width: 270px;
 
-  .name,
+  .mat-mdc-menu-content {
+    padding: 0;
+    margin: 8px;
+  }
+
+  button[mat-menu-item] {
+    .mdi {
+      padding-left: 4px;
+      padding-right: 6px;
+    }
+
+    .button-text {
+      top: -3px;
+      position: relative;
+    }
+  }
+
+  .settings {
+    .avatar {
+      border-radius: 100%;
+      width: 45px;
+      margin-top: 5px;
+    }
+
+    .settings-menu-row {
+      display: flex;
+      flex-direction: row;
+
+      &.photo {
+        .settings-menu-column {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .settings-button {
+      margin-top: 10px;
+      margin-bottom: 8px;
+
+      .mdi-cog {
+        padding-right: 10px;
+      }
+    }
+
+    .settings-menu-column {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .settings,
   .email,
   .version {
     color: white !important;
@@ -55,5 +115,17 @@ app-navbar {
     line-height: 20px;
     min-height: 20px;
     padding: 3px 20px;
+  }
+
+  .email,
+  .version {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .mdc-list-item__primary-text {
+      color: grey;
+    }
   }
 }

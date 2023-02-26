@@ -17,19 +17,26 @@
     </div>
 
     <mat-menu #menu="matMenu" yPosition="below" class="mat-menu-settings">
-      <div mat-menu-item disabled class="name">
-        <span>{{ user.firstName }} {{ user.lastName }}</span>
+      <div mat-menu-item class="settings">
+        <div class="photo settings-menu-row">
+          <div class="settings-menu-column" [matMenuTriggerFor]="menu">
+            <img class="avatar border-white" [src]="photoUrl" />
+          </div>
+          <div class="settings-menu-column">
+            <span>{{ user.firstName }} {{ user.lastName }}</span>
+            <small>{{ user.email }}</small>
+            <small *ngIf="version">{{ version }}</small>
+          </div>
+        </div>
+        <div class="settings-menu-row settings-button">
+          <i class="mdi mdi-cog mdi-24px"></i>
+          <span class="settings-button-text">Settings</span>
+        </div>
       </div>
-      <div mat-menu-item disabled class="email">
-        <span>{{ user.email }}</span>
-      </div>
-      <div mat-menu-item disabled class="version" *ngIf="version">
-        <small *ngIf="version">{{ version }}</small>
-      </div>
-      <mat-divider></mat-divider>
 
       <button (click)="logout.emit($event)" mat-menu-item data-cy="qi-logged-in-layout-logout-button">
-        <i class="mdi mdi-power mdi-24px"></i> Logout
+        <i class="mdi mdi-logout mdi-24px"></i>
+        <span class="button-text">Logout</span>
       </button>
     </mat-menu>
   </ng-container>
